@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lucky for Life Lottery</title>    
+</head>
+        
+<body>
+    <h1 style="text-align: center; color: #ff6600">Welcome to the Lucky for Life Lottery!</h1>
+    
+    <img style="max-width: 800px; height: 250px; float: right; margin-right: 30px"
+    src="https://media.tenor.com/images/2581c2e0bc53aef21d9c99911b22241e/tenor.gif"
+    alt="clip from Simpsons lottery scene">
+    
+    <img style="max-width: 800px; height: 250px; float: right; margin-right: 40px"
+    src="https://media0.giphy.com/media/l0G16DDqjqfN3WV0s/source.gif"
+    alt="clip from Simpsons lottery scene">
+    
+    <img style="max-width: 800px; height: 250px; float: right; margin-right: 40px"
+    src="http://www.geocities.ws/leedogg479/lisa/Lisapics/lisalottery.gif"
+    alt="Lisa Simpson holding a ball in bingo">
+    
+    
+    <script language="javascript">
+        randomNums = new Array(5);
+        for (i = 0; i < 5; i++) {
+            randomNums[i] = Math.random() * 47 + 1; 
+        }
+        luckyBall = Math.random() * 17 + 1;
+        
+        randomNums.sort(function(a, b) {return a - b});
+        
+        
+        allNums = prompt("Please enter the first 5 winning numbers, with each number separated by a space.");
+        separatedNums = allNums.split(" ");
+        separatedNums.sort(function(a, b) {return a - b});
+        
+        luckyNum = prompt("Please enter the winning lucky ball number.");
+        
+        
+        document.write("The randomly-picked numbers are: ");
+        for (i = 0; i < 5; i++) {
+            randomNums[i] = parseInt(randomNums[i]);
+            document.write(randomNums[i] + " ");
+        }
+        document.write("</br>The randomly-picked lucky ball number is: ");
+        luckyBall = parseInt(luckyBall);
+        document.write(luckyBall);
+        
+        document.write("</br></br>");
+        
+        document.write("The winning numbers you specified are: ");
+        for (i = 0; i < 5; i++) {
+            document.write(separatedNums[i] + " ");
+        }
+        document.write("</br>The lucky ball number you specified is: ");
+        document.write(luckyNum);
+        
+        numMatches = 0;
+        for (i = 0; i < 5; i++) {
+            if (randomNums[i] == separatedNums[i]) {
+                numMatches++;
+            }
+        }
+        document.write("</br></br>");
+        document.write("Of the first 5 numbers, " + numMatches + " matched.");
+        
+        if (luckyBall == luckyNum) {
+            luckyMatch = true;
+            document.write("</br>The lucky ball matched!");
+        }
+        else {
+            luckyMatch = false;
+            document.write("</br>The lucky ball didn't match, sorry!");
+        }
+        
+        document.write("</br></br>");
+        document.write("Based on your pick, the payout would be: ");
+        if (numMatches == 5) {
+            if (luckyMatch) {
+                document.write("$7,000 a WEEK for LIFE");
+            }
+            else {
+                document.write("$25,000 a YEAR for LIFE");
+            }
+        }
+        else if (numMatches == 4) {
+            if (luckyMatch) {
+                document.write("$5,000");
+            }
+            else {
+                document.write("$200");
+            }
+        }
+        else if (numMatches == 3) {
+            if (luckyMatch) {
+                document.write("$150");
+            }
+            else {
+                document.write("$20");
+            }
+        }
+        else if (numMatches == 2) {
+            if (luckyMatch) {
+                document.write("$25");
+            }
+            else {
+                document.write("$3");
+            }
+        }
+        else if (numMatches == 1 && luckyMatch) {
+            document.write("$6");
+        }
+        else if (numMatches == 0 && luckyMatch) {
+            document.write("$4");
+        }
+        else {
+            document.write("$0");
+        }        
+    </script>    
+</body>
+
+</html>
+    
+    
+    
+    
+    
